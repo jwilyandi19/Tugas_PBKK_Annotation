@@ -1,5 +1,8 @@
 package com.jwilyandi.pbkk;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MulOperation implements Operation {
 	private int num1;
 	private int num2;
