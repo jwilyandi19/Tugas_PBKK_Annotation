@@ -1,14 +1,24 @@
 package com.jwilyandi.pbkk;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class AddOperation implements Operation{
+	@Autowired
+	@Qualifier("addMessage")
+	private Message addMessage;
 	private int num1;
 	private int num2;
-	private String message;
-	public AddOperation() {
+	public AddOperation(Message message) {
+		super();
+		this.addMessage = message;
+	}
 	
+	public AddOperation() {
+		super();
 	}
 	
 	public void setNum1(int num1) {
@@ -30,12 +40,18 @@ public class AddOperation implements Operation{
 	public int operate() {
 		return this.num1 + this.num2;
 	}
-	
-	public void setMessage(String message) {
-		this.message = message;
+	public void setMessage(Message message) {
+		this.addMessage = message;
 	}
 	
-	public String getMessage() {
-		return this.message;
+	public Message getMessage() {
+		return addMessage;
 	}
+	
+	public String returnMessage() {
+		return Integer.toString(num1) + "+" + Integer.toString(num2) + "="
+				+ Integer.toString(operate());
+	}
+	
+	
 }

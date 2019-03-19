@@ -28,7 +28,7 @@ public class DivOperation implements Operation {
 	}
 
 	public int operate() {
-		return this.num1 / this.num2;
+		return num1 / num2;
 	}
 	
 	public void setMessage(String message) {
@@ -37,6 +37,12 @@ public class DivOperation implements Operation {
 	
 	public String getMessage() {
 		return this.message;
+	}
+	
+	
+	public String returnMessage() {
+		return Integer.toString(num1) + "/" + Integer.toString(num2) + "="
+				+ Integer.toString(operate()) + " " + getMessage();
 	}
 	
 }
